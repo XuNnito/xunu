@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xunu IA - Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat-style.css') }}">
+</head>
+<body>
+    <div class="contenedor-chat">
+        <!-- historial de chatss -->
+        <aside class="barra-lateral">
+            <div class="encabezado-lateral">
+                <h2>Xunu IA</h2>
+                <button class="btn-nuevo-chat" onclick="crearNuevoChat()" title="Nuevo chat">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="lista-chats" id="listaChats">
+                <!-- Se llenaraa con JavaScript -->
+            </div>
+
+            <div class="pie-lateral">
+                <button class="btn-limpiar" onclick="confirmarLimpiarTodo()" title="Limpiar todo">
+                    <i class="fas fa-trash-alt"></i> Limpiar historial
+                </button>
+            </div>
+        </aside>
+
+       
+        <main class="area-principal">
+            <!-- Encabesado del chat -->
+            <div class="encabezado-chat">
+                <h1 id="tituloChatActual">Nuevo Chat</h1>
+                <button class="btn-opciones" onclick="mostrarOpciones()" title="Opciones">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+
+            <!-- Estado vacio -->
+            <div class="estado-vacio" id="estadoVacio">
+                <div class="contenedor-estado">
+                    <h2>Xunu IA</h2>
+                    <p>holiii</p>
+                    <div class="ejemplos">
+                        <div class="ejemplo-btn" onclick="insertarEjemplo('¿Cómo se dice hola en tsotsil?')">
+                            <i class="fas fa-language"></i>
+                            <span>¿Cómo se dice hola en tsotsil?</span>
+                        </div>
+                        <div class="ejemplo-btn" onclick="insertarEjemplo('Enséñame palabras básicas')">
+                            <i class="fas fa-book"></i>
+                            <span>Enséñame palabras básicas</span>
+                        </div>
+                        <div class="ejemplo-btn" onclick="insertarEjemplo('Cuéntame sobre la cultura tsotsil')">
+                            <i class="fas fa-landmark"></i>
+                            <span>Cuéntame sobre la cultura tsotsil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Area de mensajes -->
+            <div class="contenedor-mensajes" id="contenedorMensajes">
+                <!-- Los mensajes se agregaran aquí -->
+            </div>
+
+            <!-- Indicador de escritura -->
+            <div class="indicador-escritura" id="indicadorEscritura" style="display: none;">
+                <div class="puntos">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- area de entrada -->
+            <form class="area-entrada" id="formularioChat" onsubmit="enviarMensaje(event)">
+                <textarea 
+                    id="campoMensaje" 
+                    class="campo-mensaje" 
+                    placeholder="Escribe tu pregunta sobre tsotsil o español..." 
+                    rows="1"></textarea>
+                <button type="submit" class="btn-enviar" title="Enviar mensaje">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </form>
+        </main>
+    </div>
+
+   
+    <div class="modal" id="modalConfirmacion" style="display: none;">
+        <div class="contenido-modal">
+            <h3>Confirmar accion</h3>
+            <p>¿Estas seguro de que quieres eliminar todo el historial de chats?</p>
+            <div class="botones-modal">
+                <button onclick="limpiarTodoConfirmado()" class="btn-peligro">Eliminar todo</button>
+                <button onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de opciones -->
+    <div class="modal" id="modalOpciones" style="display: none;">
+        <div class="contenido-modal">
+            <h3>Opciones del chat</h3>
+            <button onclick="renombrarChatActual()" class="btn-opcion">
+                <i class="fas fa-edit"></i> Renombrar chat
+            </button>
+            <button onclick="descargarChat()" class="btn-opcion">
+                <i class="fas fa-download"></i> Descargar chat
+            </button>
+            <button onclick="cerrarModal()" class="btn-opcion">
+                <i class="fas fa-times"></i> Cerrar
+            </button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

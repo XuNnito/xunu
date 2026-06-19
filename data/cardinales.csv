@@ -1,0 +1,401 @@
+Número,Tsotsil
+1,jun
+2,chib
+3,oxib
+4,chanib
+5,jo'ob
+6,vakib
+7,jukub
+8,vaxakib
+9,baluneb
+10,lajuneb
+11,buluchib
+12,lajchaeb
+13,oxlajuneb
+14,chanlajuneb
+15,jo'lajuneb
+16,vaclajuneb
+17,vuklajuneb
+18,vaxacklajuneb
+19,balunlajuneb
+20,jtob
+21,jun scha'vinik
+22,chib scha'vinik
+23,oxib scha'vinik
+24,chanib scha'vinik
+25,jo'ob scha'vinik
+26,vakib scha'vinik
+27,jukub scha'vinik
+28,vaxakib scha'vinik
+29,baluneb scha'vinik
+30,lajuneb scha'vinik
+31,buluchib scha'vinik
+32,lajchaeb scha'vinik
+33,oxlajuneb scha'vinik
+34,chanlajuneb scha'vinik
+35,jo'lajuneb scha'vinik
+36,vaclajuneb scha'vinik
+37,vuklajuneb scha'vinik
+38,vaxacklajuneb scha'vinik
+39,balunlajuneb scha'vinik
+40,cha'vinik
+41,jun yoxvinik
+42,chib yoxvinik
+43,oxib yoxvinik
+44,chanib yoxvinik
+45,jo'ob yoxvinik
+46,vakib yoxvinik
+47,jukub yoxvinik
+48,vaxakib yoxvinik
+49,baluneb yoxvinik
+50,lajuneb yoxvinik
+51,buluchib yoxvinik
+52,lajchaeb yoxvinik
+53,oxlajuneb yoxvinik
+54,chanlajuneb yoxvinik
+55,jo'lajuneb yoxvinik
+56,vaclajuneb yoxvinik
+57,vuklajuneb yoxvinik
+58,vaxacklajuneb yoxvinik
+59,balunlajuneb yoxvinik
+60,oxvinik
+61,jun schanvinik
+62,chib schanvinik
+63,oxib schanvinik
+64,chanib schanvinik
+65,jo'ob schanvinik
+66,vakib schanvinik
+67,jukub schanvinik
+68,vaxakib schanvinik
+69,baluneb schanvinik
+70,lajuneb schanvinik
+71,buluchib schanvinik
+72,lajchaeb schanvinik
+73,oxlajuneb schanvinik
+74,chanlajuneb schanvinik
+75,jo'lajuneb schanvinik
+76,vaclajuneb schanvinik
+77,vuklajuneb schanvinik
+78,vaxacklajuneb schanvinik
+79,balunlajuneb schanvinik
+80,chanvinik
+81,jun yo'vinik
+82,chib yo'vinik
+83,oxib yo'vinik
+84,chanib yo'vinik
+85,jo'ob yo'vinik
+86,vakib yo'vinik
+87,jukub yo'vinik
+88,vaxakib yo'vinik
+89,baluneb yo'vinik
+90,lajuneb yo'vinik
+91,buluchib yo'vinik
+92,lajchaeb yo'vinik
+93,oxlajuneb yo'vinik
+94,chanlajuneb yo'vinik
+95,jo'lajuneb yo'vinik
+96,vaclajuneb yo'vinik
+97,vuklajuneb yo'vinik
+98,vaxacklajuneb yo'vinik
+99,balunlajuneb yo'vinik
+100,jo'vinik
+101,jun svacvinic
+102,chib svacvinic
+103,oxib svacvinic
+104,chanib svacvinic
+105,jo'ob svacvinic
+106,vakib svacvinic
+107,jukub svacvinic
+108,vaxakib svacvinic
+109,baluneb svacvinic
+110,lajuneb svacvinic
+111,buluchib svacvinic
+112,lajchaeb svacvinic
+113,oxlajuneb svacvinic
+114,chanlajuneb svacvinic
+115,jo'lajuneb svacvinic
+116,vaclajuneb svacvinic
+117,vuklajuneb svacvinic
+118,vaxacklajuneb svacvinic
+119,balunlajuneb svacvinic
+120,vakvinik
+121,jun sjucvinic
+122,chib sjucvinic
+123,oxib sjucvinic
+124,chanib sjucvinic
+125,jo'ob sjucvinic
+126,vakib sjucvinic
+127,jukub sjucvinic
+128,vaxakib sjucvinic
+129,baluneb sjucvinic
+130,lajuneb sjucvinic
+131,buluchib sjucvinic
+132,lajchaeb sjucvinic
+133,oxlajuneb sjucvinic
+134,chanlajuneb sjucvinic
+135,jo'lajuneb sjucvinic
+136,vaclajuneb sjucvinic
+137,vuklajuneb sjucvinic
+138,vaxacklajuneb sjucvinic
+139,balunlajuneb sjucvinic
+140,jucvinik
+141,jun svaxacvinik
+142,chib svaxacvinik
+143,oxib svaxacvinik
+144,chanib svaxacvinik
+145,jo'ob svaxacvinik
+146,vakib svaxacvinik
+147,jukub svaxacvinik
+148,vaxakib svaxacvinik
+149,baluneb svaxacvinik
+150,lajuneb svaxacvinik
+151,buluchib svaxacvinik
+152,lajchaeb svaxacvinik
+153,oxlajuneb svaxacvinik
+154,chanlajuneb svaxacvinik
+155,jo'lajuneb svaxacvinik
+156,vaclajuneb svaxacvinik
+157,vuklajuneb svaxacvinik
+158,vaxacklajuneb svaxacvinik
+159,balunlajuneb svaxacvinik
+160,vaxacvinik
+161,jun sbalunvinik
+162,chib sbalunvinik
+163,oxib sbalunvinik
+164,chanib sbalunvinik
+165,jo'ob sbalunvinik
+166,vakib sbalunvinik
+167,jukub sbalunvinik
+168,vaxakib sbalunvinik
+169,baluneb sbalunvinik
+170,lajuneb sbalunvinik
+171,buluchib sbalunvinik
+172,lajchaeb sbalunvinik
+173,oxlajuneb sbalunvinik
+174,chanlajuneb sbalunvinik
+175,jo'lajuneb sbalunvinik
+176,vaclajuneb sbalunvinik
+177,vuklajuneb sbalunvinik
+178,vaxacklajuneb sbalunvinik
+179,balunlajuneb sbalunvinik
+180,balunvinic
+181,jun slajunvinik
+182,chib slajunvinik
+183,oxib slajunvinik
+184,chanib slajunvinik
+185,jo'ob slajunvinik
+186,vakib slajunvinik
+187,jukub slajunvinik
+188,vaxakib slajunvinik
+189,baluneb slajunvinik
+190,lajuneb slajunvinik
+191,buluchib slajunvinik
+192,lajchaeb slajunvinik
+193,oxlajuneb slajunvinik
+194,chanlajuneb slajunvinik
+195,jo'lajuneb slajunvinik
+196,vaclajuneb slajunvinik
+197,vuklajuneb slajunvinik
+198,vaxacklajuneb slajunvinik
+199,balunlajuneb slajunvinik
+200,lajunvinik
+201,jun sbuluchibvinik
+202,chib sbuluchibvinik
+203,oxib sbuluchibvinik
+204,chanib sbuluchibvinik
+205,jo'ob sbuluchibvinik
+206,vakib sbuluchibvinik
+207,jukub sbuluchibvinik
+208,vaxakib sbuluchibvinik
+209,baluneb sbuluchibvinik
+210,lajuneb sbuluchibvinik
+211,buluchib sbuluchibvinik
+212,lajchaeb sbuluchibvinik
+213,oxlajuneb sbuluchibvinik
+214,chanlajuneb sbuluchibvinik
+215,jo'lajuneb sbuluchibvinik
+216,vaclajuneb sbuluchibvinik
+217,vuklajuneb sbuluchibvinik
+218,vaxacklajuneb sbuluchibvinik
+219,balunlajuneb sbuluchibvinik
+220,buluchibvinik
+221,jun slajchaebvinik
+222,chib slajchaebvinik
+223,oxib slajchaebvinik
+224,chanib slajchaebvinik
+225,jo'ob slajchaebvinik
+226,vakib slajchaebvinik
+227,jukub slajchaebvinik
+228,vaxakib slajchaebvinik
+229,baluneb slajchaebvinik
+230,lajuneb slajchaebvinik
+231,buluchib slajchaebvinik
+232,lajchaeb slajchaebvinik
+233,oxlajuneb slajchaebvinik
+234,chanlajuneb slajchaebvinik
+235,jo'lajuneb slajchaebvinik
+236,vaclajuneb slajchaebvinik
+237,vuklajuneb slajchaebvinik
+238,vaxacklajuneb slajchaebvinik
+239,balunlajuneb slajchaebvinik
+240,lajchaebvinik
+241,jun soxlajunvinik
+242,chib soxlajunvinik
+243,oxib soxlajunvinik
+244,chanib soxlajunvinik
+245,jo'ob soxlajunvinik
+246,vakib soxlajunvinik
+247,jukub soxlajunvinik
+248,vaxakib soxlajunvinik
+249,baluneb soxlajunvinik
+250,lajuneb soxlajunvinik
+251,buluchib soxlajunvinik
+252,lajchaeb soxlajunvinik
+253,oxlajuneb soxlajunvinik
+254,chanlajuneb soxlajunvinik
+255,jo'lajuneb soxlajunvinik
+256,vaclajuneb soxlajunvinik
+257,vuklajuneb soxlajunvinik
+258,vaxacklajuneb soxlajunvinik
+259,balunlajuneb soxlajunvinik
+260,oxlajunvinik
+261,jun schanlajunvinik
+262,chib schanlajunvinik
+263,oxib schanlajunvinik
+264,chanib schanlajunvinik
+265,jo'ob schanlajunvinik
+266,vakib schanlajunvinik
+267,jukub schanlajunvinik
+268,vaxakib schanlajunvinik
+269,baluneb schanlajunvinik
+270,lajuneb schanlajunvinik
+271,buluchib schanlajunvinik
+272,lajchaeb schanlajunvinik
+273,oxlajuneb schanlajunvinik
+274,chanlajuneb schanlajunvinik
+275,jo'lajuneb schanlajunvinik
+276,vaclajuneb schanlajunvinik
+277,vuklajuneb schanlajunvinik
+278,vaxacklajuneb schanlajunvinik
+279,balunlajuneb schanlajunvinik
+280,chanlajunvinik
+281,jun sjo'lajunvinik
+282,chib sjo'lajunvinik
+283,oxib sjo'lajunvinik
+284,chanib sjo'lajunvinik
+285,jo'ob sjo'lajunvinik
+286,vakib sjo'lajunvinik
+287,jukub sjo'lajunvinik
+288,vaxakib sjo'lajunvinik
+289,baluneb sjo'lajunvinik
+290,lajuneb sjo'lajunvinik
+291,buluchib sjo'lajunvinik
+292,lajchaeb sjo'lajunvinik
+293,oxlajuneb sjo'lajunvinik
+294,chanlajuneb sjo'lajunvinik
+295,jo'lajuneb sjo'lajunvinik
+296,vaclajuneb sjo'lajunvinik
+297,vuklajuneb sjo'lajunvinik
+298,vaxacklajuneb sjo'lajunvinik
+299,balunlajuneb sjo'lajunvinik
+300,jo'lajunvinik
+301,jun svaclajunvinik
+302,chib svaclajunvinik
+303,oxib svaclajunvinik
+304,chanib svaclajunvinik
+305,jo'ob svaclajunvinik
+306,vakib svaclajunvinik
+307,jukub svaclajunvinik
+308,vaxakib svaclajunvinik
+309,baluneb svaclajunvinik
+310,lajuneb svaclajunvinik
+311,buluchib svaclajunvinik
+312,lajchaeb svaclajunvinik
+313,oxlajuneb svaclajunvinik
+314,chanlajuneb svaclajunvinik
+315,jo'lajuneb svaclajunvinik
+316,vaclajuneb svaclajunvinik
+317,vuklajuneb svaclajunvinik
+318,vaxacklajuneb svaclajunvinik
+319,balunlajuneb svaclajunvinik
+320,vaclajunvinik
+321,jun svuklajunvinik
+322,chib svuklajunvinik
+323,oxib svuklajunvinik
+324,chanib svuklajunvinik
+325,jo'ob svuklajunvinik
+326,vakib svuklajunvinik
+327,jukub svuklajunvinik
+328,vaxakib svuklajunvinik
+329,baluneb svuklajunvinik
+330,lajuneb svuklajunvinik
+331,buluchib svuklajunvinik
+332,lajchaeb svuklajunvinik
+333,oxlajuneb svuklajunvinik
+334,chanlajuneb svuklajunvinik
+335,jo'lajuneb svuklajunvinik
+336,vaclajuneb svuklajunvinik
+337,vuklajuneb svuklajunvinik
+338,vaxacklajuneb svuklajunvinik
+339,balunlajuneb svuklajunvinik
+340,vuklajunvinik
+341,jun svaxacklajunvinik
+342,chib svaxacklajunvinik
+343,oxib svaxacklajunvinik
+344,chanib svaxacklajunvinik
+345,jo'ob svaxacklajunvinik
+346,vakib svaxacklajunvinik
+347,jukub svaxacklajunvinik
+348,vaxakib svaxacklajunvinik
+349,baluneb svaxacklajunvinik
+350,lajuneb svaxacklajunvinik
+351,buluchib svaxacklajunvinik
+352,lajchaeb svaxacklajunvinik
+353,oxlajuneb svaxacklajunvinik
+354,chanlajuneb svaxacklajunvinik
+355,jo'lajuneb svaxacklajunvinik
+356,vaclajuneb svaxacklajunvinik
+357,vuklajuneb svaxacklajunvinik
+358,vaxacklajuneb svaxacklajunvinik
+359,balunlajuneb svaxacklajunvinik
+360,vaxacklajunvinik
+361,jun sbalunlajunvinik
+362,chib sbalunlajunvinik
+363,oxib sbalunlajunvinik
+364,chanib sbalunlajunvinik
+365,jo'ob sbalunlajunvinik
+366,vakib sbalunlajunvinik
+367,jukub sbalunlajunvinik
+368,vaxakib sbalunlajunvinik
+369,baluneb sbalunlajunvinik
+370,lajuneb sbalunlajunvinik
+371,buluchib sbalunlajunvinik
+372,lajchaeb sbalunlajunvinik
+373,oxlajuneb sbalunlajunvinik
+374,chanlajuneb sbalunlajunvinik
+375,jo'lajuneb sbalunlajunvinik
+376,vaclajuneb sbalunlajunvinik
+377,vuklajuneb sbalunlajunvinik
+378,vaxacklajuneb sbalunlajunvinik
+379,balunlajuneb sbalunlajunvinik
+380,balunlajunvinik
+381,jun sjboc'
+382,chib sjboc'
+383,oxib sjboc'
+384,chanib sjboc'
+385,jo'ob sjboc'
+386,vakib sjboc'
+387,jukub sjboc'
+388,vaxakib sjboc'
+389,baluneb sjboc'
+390,lajuneb sjboc'
+391,buluchib sjboc'
+392,lajchaeb sjboc'
+393,oxlajuneb sjboc'
+394,chanlajuneb sjboc'
+395,jo'lajuneb sjboc'
+396,vaclajuneb sjboc'
+397,vuklajuneb sjboc'
+398,vaxacklajuneb sjboc'
+399,balunlajuneb sjboc'
+400,jboc'

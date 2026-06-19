@@ -1,0 +1,8 @@
+flask
+flask-cors
+pandas
+rapidfuzz
+SpeechRecognition
+pyaudio
+groq
+python-dotenv
