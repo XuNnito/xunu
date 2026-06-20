@@ -20,14 +20,11 @@ except ImportError:
 app = Flask(__name__)
 CORS(app)
 
-# Almacenamiento en memoria para sesiones (localStorage equivalente en servidor)
 sesiones_chats = {}
 
-# Configurar logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-#  CONFIGURACIÓN GROQ 
 LLAVE_GROQ = os.environ.get("GROQ_API_KEY")
 CLIENTE_GROQ = None
 
@@ -114,7 +111,6 @@ def procesar_csv(ruta_archivo):
         nuevo = pd.DataFrame()
         nuevo["tsotsil"] = marco_datos[columna_tsotsil].apply(normalizar)
         nuevo["espanol"] = marco_datos[columna_espanol].apply(normalizar)
-
         nuevo["archivo"] = os.path.basename(ruta_archivo)
 
         for columna in [
@@ -173,21 +169,10 @@ def cargar_todos_los_csv():
 diccionario = cargar_todos_los_csv()
 
 
-# ==================== FUNCIONES GROQ ====================
 def conectar_groq(mensaje, modelo="llama-3.1-8b-instant"):
-    """
-    Función para conectar con Groq y obtener respuestas del modelo
-    
-    Args:
-        mensaje (str): El mensaje o prompt a enviar
-        modelo (str): El modelo de Groq a utilizar
-    
-    Returns:
-        str: La respuesta del modelo o None si hay error
-    """
     if not CLIENTE_GROQ:
         return None
-    
+
     try:
         finalizacion_chat = CLIENTE_GROQ.chat.completions.create(
             messages=[
@@ -203,31 +188,19 @@ def conectar_groq(mensaje, modelo="llama-3.1-8b-instant"):
             stop=None,
             stream=False,
         )
-        
+
         respuesta = finalizacion_chat.choices[0].message.content
         return respuesta
-        
+
     except Exception as error:
         print(f"Error al conectar con Groq: {error}")
         return None
 
 
 def buscar_traduccion_con_razonamiento(texto, idioma_detectado, opciones_diccionario):
-    """
-    Usa IA de Groq para razonar y encontrar la traducción más precisa
-    
-    Args:
-        texto (str): Texto original a traducir
-        idioma_detectado (str): Idioma detectado (tsotsil o español)
-        opciones_diccionario (list): Lista de opciones del diccionario
-    
-    Returns:
-        dict: Datos de la traducción mejorada o None
-    """
     if not CLIENTE_GROQ or opciones_diccionario.empty:
         return None
-    
-    # Preparar contexto para Groq
+
     contexto_opciones = json.dumps([
         {
             "tsotsil": row["tsotsil"],
@@ -237,9 +210,9 @@ def buscar_traduccion_con_razonamiento(texto, idioma_detectado, opciones_diccion
         }
         for _, row in opciones_diccionario.iterrows()
     ], ensure_ascii=False, indent=2)
-    
+
     prompt = f"""
-Tienes un diccionario de traducciones entre Tsotsil y Español. 
+Tienes un diccionario de traducciones entre Tsotsil y Español.
 Dado el texto: "{texto}"
 Idioma detectado: {idioma_detectado}
 
@@ -256,11 +229,10 @@ Responde SOLO con el JSON de la opción seleccionada (sin explicación adicional
     "razonamiento": "breve explicación"
 }}
 """
-    
+
     try:
         respuesta = conectar_groq(prompt)
         if respuesta:
-            # Intentar extraer JSON de la respuesta
             inicio = respuesta.find("{")
             fin = respuesta.rfind("}") + 1
             if inicio >= 0 and fin > inicio:
@@ -269,7 +241,7 @@ Responde SOLO con el JSON de la opción seleccionada (sin explicación adicional
                 return datos_respuesta
     except Exception as error:
         print(f"Error al procesar respuesta de Groq: {error}")
-    
+
     return None
 
 
@@ -322,9 +294,7 @@ def detectar_y_traducir(texto):
         palabra_coincidida = diccionario.iloc[indice]["espanol"]
 
     if puntuacion < 55:
-        # Intentar mejorar con Groq si la puntuación es muy baja
         if CLIENTE_GROQ and puntuacion > 35:
-            # Obtener opciones cercanas para análisis de Groq
             mejores_coincidencias_tsotsil = process.extract(
                 texto_limpio,
                 lista_palabras_tsotsil,
@@ -337,34 +307,35 @@ def detectar_y_traducir(texto):
                 scorer=fuzz.token_sort_ratio,
                 limit=3
             )
-            
-            # Combinar índices únicos de ambas búsquedas
+
             indices_opciones = set()
+
             for _, _, indice_opcion in mejores_coincidencias_tsotsil:
                 indices_opciones.add(indice_opcion)
+
             for _, _, indice_opcion in mejores_coincidencias_espanol:
                 indices_opciones.add(indice_opcion)
-            
+
             if indices_opciones:
                 opciones = diccionario.iloc[list(indices_opciones)]
                 resultado_groq = buscar_traduccion_con_razonamiento(texto, idioma, opciones)
-                
+
                 if resultado_groq:
-                    # Encontrar en el diccionario la fila correspondiente
                     fila_mejorada = diccionario[
                         (diccionario["tsotsil"] == resultado_groq.get("tsotsil", "")) |
                         (diccionario["espanol"] == resultado_groq.get("espanol", ""))
                     ]
-                    
+
                     if not fila_mejorada.empty:
                         fila = fila_mejorada.iloc[0]
                         idioma_mejorado = "tsotsil" if idioma == "español" else "español"
+
                         return {
                             "original": texto,
                             "idioma_detectado": idioma_mejorado,
                             "traduccion": str(resultado_groq.get("espanol" if idioma == "tsotsil" else "tsotsil", "")),
                             "coincidencia": str(resultado_groq.get("tsotsil" if idioma == "español" else "espanol", "")),
-                            "porcentaje": 65.0,  # Marcamos que fue mejorado por Groq
+                            "porcentaje": 65.0,
                             "archivo": str(fila.get("archivo", "")),
                             "tipo_palabra": str(resultado_groq.get("tipo", fila.get("tipo_palabra", ""))),
                             "categoria": str(fila.get("categoria_general", "")),
@@ -373,8 +344,7 @@ def detectar_y_traducir(texto):
                             "vease": str(fila.get("vease", "")),
                             "nota": "✨ Mejorado con IA"
                         }
-        
-        # Si Groq no está disponible o falló, retornar sin coincidencia
+
         return {
             "original": texto,
             "idioma_detectado": "desconocido",
@@ -390,7 +360,6 @@ def detectar_y_traducir(texto):
             "nota": ""
         }
 
-    # Mejorar resultado si puntuación es moderada (50-75) usando Groq
     if CLIENTE_GROQ and 50 < puntuacion < 75:
         mejores_coincidencias = process.extract(
             texto_limpio,
@@ -398,17 +367,18 @@ def detectar_y_traducir(texto):
             scorer=fuzz.token_sort_ratio,
             limit=3
         )
-        
+
         indices_opciones = {indice_opcion for _, _, indice_opcion in mejores_coincidencias}
         opciones = diccionario.iloc[list(indices_opciones)]
-        
+
         resultado_groq = buscar_traduccion_con_razonamiento(texto, idioma, opciones)
+
         if resultado_groq:
             fila_mejorada = diccionario[
                 (diccionario["tsotsil"] == resultado_groq.get("tsotsil", "")) |
                 (diccionario["espanol"] == resultado_groq.get("espanol", ""))
             ]
-            
+
             if not fila_mejorada.empty:
                 fila = fila_mejorada.iloc[0]
                 idioma = "tsotsil" if idioma == "español" else "español"
@@ -419,13 +389,14 @@ def detectar_y_traducir(texto):
     fila = diccionario.iloc[indice]
 
     nota_adicional = ""
+
     if puntuacion >= 80:
         nota_adicional = "✓ Coincidencia precisa"
     elif puntuacion >= 70:
         nota_adicional = "✓ Muy probable"
     elif puntuacion >= 60:
         nota_adicional = "⚠ Posible coincidencia"
-    
+
     return {
         "original": texto,
         "idioma_detectado": idioma,
@@ -444,27 +415,23 @@ def detectar_y_traducir(texto):
 
 @app.route("/")
 def index():
-    """Ruta principal - sirve la interfaz del chat"""
     return render_template("chat.html")
 
 
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
-    """API para enviar mensajes al chat - compatible con localStorage frontend"""
     logger.debug("POST /api/chat")
-    
+
     datos = request.get_json(force=True) or {}
-    
-    # Soportar tanto "message" como "mensaje"
+
     mensaje = (datos.get("message") or datos.get("mensaje") or "").strip()
     email = (datos.get("email") or "").strip() or "usuario_local"
     idSesion = datos.get("session_id") or str(uuid.uuid4())
-    
+
     if not mensaje:
         return {"success": False, "message": "mensaje requerido"}, 400
 
     try:
-        # Asegurar que la sesión existe
         if idSesion not in sesiones_chats:
             sesiones_chats[idSesion] = {
                 "mensajes": [],
@@ -472,38 +439,34 @@ def api_chat():
                 "titulo": "Nuevo Chat",
                 "usuario": email
             }
-        
+
         sesion = sesiones_chats[idSesion]
-        
-        # Agregar mensaje del usuario
+
         sesion["mensajes"].append({
             "rol": "usuario",
             "contenido": mensaje,
             "timestamp": time.time()
         })
-        
-        # Obtener respuesta usando Groq + diccionario
+
         respuesta = obtener_respuesta_inteligente(mensaje, sesion["mensajes"])
-        
-        # Agregar respuesta del bot
+
         sesion["mensajes"].append({
             "rol": "bot",
             "contenido": respuesta,
             "timestamp": time.time()
         })
-        
-        # Actualizar título si es primer mensaje
+
         if len(sesion["mensajes"]) == 2:
             titulo = mensaje[:50]
             if len(mensaje) > 50:
                 titulo += "..."
             sesion["titulo"] = titulo
-        
+
         logger.debug(f"Chat {idSesion} procesado correctamente")
-        
+
         return {
-            "success": True, 
-            "sessionId": idSesion, 
+            "success": True,
+            "sessionId": idSesion,
             "bot_response": respuesta
         }, 200
 
@@ -513,18 +476,14 @@ def api_chat():
 
 
 def obtener_respuesta_inteligente(mensaje, historial):
-    """Obtener respuesta usando Groq con contexto del diccionario"""
-    
-    # Buscar traducción en el diccionario
     resultado = detectar_y_traducir(mensaje)
-    
+
     if not CLIENTE_GROQ:
-        # Si no hay Groq, retornar la traducción del diccionario
         return f"<strong>{resultado['traduccion']}</strong><br><small>Detectado como: {resultado['idioma_detectado']}</small>"
-    
+
     try:
-        # Construir contexto del historial (últimos 5 mensajes)
         contexto_hist = []
+
         for msg in historial[-5:]:
             rol = "user" if msg.get("rol") == "usuario" else "assistant"
             contenido = msg.get("contenido", "").replace("<", "&lt;").replace(">", "&gt;")
@@ -532,19 +491,17 @@ def obtener_respuesta_inteligente(mensaje, historial):
                 "role": rol,
                 "content": contenido
             })
-        
-        # Crear prompt del sistema
-        sistema = """Eres Xunu, un asistente amigable para aprender sobre el idioma Tsotsil y español. 
+
+        sistema = """Eres Xunu, un asistente amigable para aprender sobre el idioma Tsotsil y español.
 Responde de forma clara, educada y útil. Si se pregunta sobre traducciones, proporciona respuestas precisas.
 Mantén las respuestas concisas pero informativas. Si alguien pregunta quién te programó, di que fuiste creado por XuNnito."""
-        
+
         mensajes_groq = [
             {"role": "system", "content": sistema}
         ] + contexto_hist + [
             {"role": "user", "content": mensaje}
         ]
-        
-        # Llamar a Groq
+
         finalizacion = CLIENTE_GROQ.chat.completions.create(
             messages=mensajes_groq,
             model="llama-3.1-8b-instant",
@@ -552,20 +509,17 @@ Mantén las respuestas concisas pero informativas. Si alguien pregunta quién te
             max_tokens=512,
             top_p=1
         )
-        
+
         respuesta = finalizacion.choices[0].message.content
-        
-        # Si hay una buena traducción del diccionario, añadirla
+
         if resultado['porcentaje'] > 60:
             respuesta += f"\n\n<em>Traducción: <strong>{resultado['traduccion']}</strong></em>"
-        
+
         return respuesta
-        
+
     except Exception as e:
         logger.error(f"Error al llamar a Groq: {e}")
-        # Fallback a traducción del diccionario
         return f"<strong>{resultado['traduccion']}</strong>"
-
 
 
 def traducir():
@@ -577,7 +531,6 @@ def traducir():
 
 @app.route("/estado", methods=["GET"])
 def estado():
-    """Información del estado del servidor"""
     return jsonify({
         "csv_cargados": len(glob.glob("data/*.csv")),
         "filas_cargadas": len(diccionario),
@@ -587,4 +540,3 @@ def estado():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
-    
