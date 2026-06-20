@@ -1,0 +1,11 @@
+﻿id,peso,entrada_tsotsil,tipo_abreviado,tipo_palabra,categoria_general,traduccion_espanol,uso_o_ejemplo,region_abreviada,region,vease,nota_parentesis,transcripcion_original
+1,1,abat,s,sustantivo,sustantivo,"soldado, mensajero",,,,,,"abat s soldado, mensajero"
+2,1,abmaltic,,,variante dialectal,"montaña, bosque",,Ch'en,Chenalhó,jabnaltic,,"abmaltic Ch'en montaña, bosque abmalal te'tic, muc' ta abmal serranía, sierra Véase jabnaltic"
+3,1,abol,adj,adjetivo,adjetivo,"infeliz, pobre, desgraciado.","Li vinic li'i toj abol sba yu'un mu'yue ctusi oy yu'un, Éste hombre es muy pobre porque no tiene nada.",,,,,"abol adj infeliz, pobre, desgraciado. Li vinic li'i toj abol sba yu'un mu'yue ctusi oy yu'un, Éste hombre es muy pobre porque no tiene nada."
+4,1,ta xaboltajes,vt,verbo transitivo,verbo,lo debilita,,,,,,ta xaboltajes vt lo debilita
+5,1,ta x'aboltaj,vi,verbo intransitivo,verbo,se debilita,,,,,,ta x'aboltaj vi se debilita
+6,1,abolajan,imper,imperativo,imperativo,"hazme el favor, por",,,,,,"abolajan imper hazme el favor, por"
+7,1,favor,,,variante dialectal,abulajan,,Ch'en,Chenalhó,,,favor Ch'en abulajan
+8,1,ta x'abolaj,vi,verbo intransitivo,verbo,hace el favor,,Ch'en,Chenalhó,,,ta x'abolaj vi hace el favor Ch'en ta x!abulaj
+9,1,xyuc'lajet,s,sustantivo,sustantivo,"arma, herramienta",,,,abtel,,"abtejebal s arma, herramienta yabtejeb su arma, su herramienta Véase abtel"
+10,1,abtel,s,sustantivo,sustantivo,"1. trabajo, obra. Ta jpas",,,,,,"abtel s 1. trabajo, obra. Ta jpas cabtel. Hago mi trabajo. 2. empleo, puesto, oficio. Tsots yabtel yich'oj. Tiene un puesto muy importante."
